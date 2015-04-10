@@ -2,17 +2,17 @@
 
 from random import random
 
-moneyA = 10
-moneyB = moneyA
+initial = 10
 
-num_games = 0
-while moneyA > 0 and moneyB > 0:
+moneyA = [initial]
+moneyB = [initial]
+
+while moneyA[-1] > 0 and moneyB[-1] > 0:
     if random() < 0.5:
-        moneyA += 1
-        moneyB -= 1
+        moneyA.append(moneyA[-1]+1)
+        moneyB.append(moneyB[-1]-1)
     else:
-        moneyA -= 1
-        moneyB += 1
-    num_games += 1
+        moneyA.append(moneyA[-1]-1)
+        moneyB.append(moneyB[-1]+1)
 
-print(moneyA, moneyB, num_games)
+print(moneyA, moneyB)
